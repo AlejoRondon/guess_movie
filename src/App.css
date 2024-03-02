@@ -17,6 +17,15 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
+.shadow-animation-error {
+  filter: drop-shadow(0 0 2em rgba(255, 0, 0)); /* Initial state with the shadow effect */
+  transition: filter 0.5s ease; /* Smooth transition for the filter property lasting 1 second */
+}
+.shadow-animation-ok {
+  filter: drop-shadow(0 0 2em #646cffaa); /* Initial state with the shadow effect */
+  transition: filter 0.5s ease; /* Smooth transition for the filter property lasting 1 second */
+}
+
 h1 {
   font-size: 3rem !important;
   line-height: 1.1;

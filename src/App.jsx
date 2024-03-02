@@ -18,6 +18,7 @@ function App() {
   const [is_game_over, setIsGameOver] = useState(false)
   const [input_text, setInputText] = useState('')
   const [main_banner_text, setMainBannerText] = useState('')
+  const [guessActionOccurred, setGuessActionOccurred] = useState('')
 
   useEffect(() => {
     // prettier-ignore
@@ -64,18 +65,7 @@ function App() {
     console.log('score: ', score)
   }, [score])
 
-  const handleOnChangeText = e => {
-    setInputText(e.target.value)
-  }
-
-  const handleOnClickPlayAgainBtn = () => {
-    console.log('play again')
-    setIsGameOver(false)
-    setScore({ lives: game_settings['lives'], points: 0 })
-    setMoviesData([...all_movies_data])
-  }
-
-  const handleOnClickGuessBtn = () => {
+  function validateInput() {
     if (is_game_locked) return
 
     setInputText('')
@@ -89,10 +79,15 @@ function App() {
     if (movie_title == movie_guessed) {
       _score.points += 1
       setMainBannerText(`Yeah! ${movies_data[random_movie_index].title}`)
+      setGuessActionOccurred('ok')
     } else {
       _score.lives -= 1
+      setGuessActionOccurred('error')
       setMainBannerText(`Ops! ${movies_data[random_movie_index].title}`)
     }
+    setTimeout(() => {
+      setGuessActionOccurred('') // Reset actionOccurred after some seconds
+    }, 1500) // Change the duration to the desired time in milliseconds
     setScore(_score)
 
     if (_score.lives === 0) {
@@ -117,21 +112,42 @@ function App() {
     }
   }
 
+  const handleOnChangeText = e => {
+    setInputText(e.target.value)
+  }
+
+  const handleOnClickPlayAgainBtn = () => {
+    console.log('play again')
+    setIsGameOver(false)
+    setScore({ lives: game_settings['lives'], points: 0 })
+    setMoviesData([...all_movies_data])
+  }
+
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      validateInput()
+    }
+  }
+
+  const handleOnClickGuessBtn = () => {
+    validateInput()
+  }
+
   return (
     <>
       <ScoreBar gameSettings={game_settings} score={score}></ScoreBar>
-      <img src={game_settings ? game_settings['logo-url'] : ''} className='logo' alt='Guess Movie Logo' />
+      <img src={game_settings ? game_settings['logo-url'] : ''} className={`logo ${guessActionOccurred !== '' ? 'shadow-animation-' + guessActionOccurred : ''}`} alt='Guess Movie Logo' />
       <h1 className='emojis-banner'>{main_banner_text ? main_banner_text : 'Loading...'}</h1>
       <h2 className={`game-question-banner ${is_game_over ? 'hidden' : ''}`}>{game_settings ? game_settings['game-question'] : ''}</h2>
       <CustomForm
         className={is_game_over ? 'hidden' : ''}
         onClickButton={handleOnClickGuessBtn}
         onChangeText={handleOnChangeText}
+        onKeyPress={handleKeyPress}
         inputText={input_text}
         gameSettings={game_settings}
         inputPlaceHolder={movies_data?.[random_movie_index]?.hint ?? ''}></CustomForm>
       <CustomButton className={`try-again-btn ${!is_game_over ? 'hidden' : ''}`} text='Play Again' onClickButton={handleOnClickPlayAgainBtn}></CustomButton>
-
       <InstructionsList list={instructions_list}></InstructionsList>
     </>
   )
