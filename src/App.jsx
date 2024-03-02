@@ -123,9 +123,10 @@ function App() {
     setMoviesData([...all_movies_data])
   }
 
-  const handleKeyPress = event => {
-    if (event.key === 'Enter') {
+  const handleKeyPress = e => {
+    if (e.key === 'Enter') {
       validateInput()
+      e.target.blur()
     }
   }
 
