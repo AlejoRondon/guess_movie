@@ -1,0 +1,40 @@
+{
+  "settings": {
+    "lives-label": "Lives",
+    "points-label": "Points",
+    "game-question": "What movie these emojis represent?",
+    "submit-btn-text": "guess!",
+    "logo-url": "./logo.png",
+    "lives": 3
+  },
+  "instructions": [
+    "You will be shown a series of emojis that represent a movie title.",
+    "Your task is to guess the movie title based on the emojis.",
+    "You have 3 lives.",
+    "Each incorrect guess will cost you a life.",
+    "You earn 1 point for each correct guess.",
+    "If you lose all 3 lives, the game ends."
+  ],
+  "movies": [
+    { "title": "Forrest Gump", "emoji": "🏃🍫🍤", "hint": "Box of chocolates life" },
+    { "title": "The Matrix", "emoji": "🕶️💊👽", "hint": "Red pill blue pill" },
+    { "title": "Titanic", "emoji": "🚢❄️💔", "hint": "Tragic love story ship" },
+    { "title": "Jurassic Park", "emoji": "🦖🌴🚙", "hint": "Dinosaurs roam park" },
+    { "title": "The Lion King", "emoji": "🦁👑🌅", "hint": "Hakuna Matata life" },
+    { "title": "Star Wars", "emoji": "⚔️🚀🌌", "hint": "Force with you" },
+    { "title": "The Avengers", "emoji": "🦸‍♂️🦸‍♀️💥", "hint": "Mightiest heroes unite" },
+    { "title": "Harry Potter", "emoji": "⚡🧙‍♂️🔮", "hint": "You're a wizard" },
+    { "title": "The Terminator", "emoji": "🤖🔫🕶️", "hint": "I'll be back" },
+    { "title": "Indiana Jones", "emoji": "🤠🔍💎", "hint": "Archaeologist adventurer" },
+    { "title": "Back to the Future", "emoji": "⏰🚗💥", "hint": "1.21 gigawatts" },
+    { "title": "The Shawshank Redemption", "emoji": "🔒🔑💰", "hint": "Get busy living" },
+    { "title": "The Godfather", "emoji": "🍕🤵🔫", "hint": "Offer you can't" },
+    { "title": "The Dark Knight", "emoji": "🦇♞👨‍🦯", "hint": "Why so serious" },
+    { "title": "Pulp Fiction", "emoji": "🍔🔫🕶️", "hint": "Royale with cheese" },
+    { "title": "Schindler's List", "emoji": "📜🚂🔴", "hint": "Saving lives Holocaust" },
+    { "title": "The Lord of the Rings: The Return of the King", "emoji": "🧝‍♂️🧙‍♂️🗡️", "hint": "One ring rule" },
+    { "title": "The Silence of the Lambs", "emoji": "🔇🐑🍖", "hint": "Hello Clarice" },
+    { "title": "Fight Club", "emoji": "👊💼🚽", "hint": "First rule Fight Club" },
+    { "title": "Inception", "emoji": "🌀👩‍🚀🎩", "hint": "Dream within dream" }
+  ]
+}
