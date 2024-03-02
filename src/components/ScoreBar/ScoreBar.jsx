@@ -1,5 +1,5 @@
 import './ScoreBar.scss'
-import CustomLabel from '../CustomLabel/CuestomLabel'
+import CustomLabel from '../CustomLabel/CustomLabel'
 
 function ScoreBar({ gameSettings, score }) {
   return (

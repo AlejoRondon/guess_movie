@@ -1,8 +1,8 @@
 import './CustomButton.scss'
 
-function CustomButton({ text, onClickButton }) {
+function CustomButton({ text, onClickButton, className }) {
   return (
-    <button className='custom-button' onClick={onClickButton}>
+    <button className={`custom-button ${className}`} onClick={onClickButton}>
       {text ? text : 'default'}
     </button>
   )

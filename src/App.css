@@ -1,6 +1,6 @@
 #root {
   /* background-color: aliceblue; */
-  max-width: 1280px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -20,4 +20,12 @@
 h1 {
   font-size: 3rem !important;
   line-height: 1.1;
+}
+
+.hidden {
+  display: none;
+}
+
+.try-again-btn {
+  margin: 1.5rem 0;
 }
