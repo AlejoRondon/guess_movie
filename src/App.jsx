@@ -16,6 +16,7 @@ function App() {
   const [score, setScore] = useState({})
   const [is_game_locked, setIsGameLocked] = useState(false)
   const [is_game_over, setIsGameOver] = useState(false)
+  const [show_instructions, setShowInstructions] = useState(true)
   const [input_text, setInputText] = useState('')
   const [main_banner_text, setMainBannerText] = useState('')
   const [guessActionOccurred, setGuessActionOccurred] = useState('')
@@ -67,7 +68,6 @@ function App() {
 
   function validateInput() {
     if (is_game_locked) return
-
     setInputText('')
 
     const movie_title = movies_data[random_movie_index]['title'].toLowerCase()
@@ -114,6 +114,7 @@ function App() {
 
   const handleOnChangeText = e => {
     setInputText(e.target.value)
+    setShowInstructions(false)
   }
 
   const handleOnClickPlayAgainBtn = () => {
@@ -149,7 +150,7 @@ function App() {
         gameSettings={game_settings}
         inputPlaceHolder={movies_data?.[random_movie_index]?.hint ?? ''}></CustomForm>
       <CustomButton className={`try-again-btn ${!is_game_over ? 'hidden' : ''}`} text='Play Again' onClickButton={handleOnClickPlayAgainBtn}></CustomButton>
-      <InstructionsList list={instructions_list}></InstructionsList>
+      <InstructionsList className={show_instructions ? '' : 'hidden'} list={instructions_list}></InstructionsList>
     </>
   )
 }

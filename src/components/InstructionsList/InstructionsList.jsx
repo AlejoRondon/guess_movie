@@ -1,8 +1,8 @@
 import './InstructionsList.scss'
 
-function InstructionsList({ list }) {
+function InstructionsList({ list, className }) {
   return (
-    <div className='instructions-list'>
+    <div className={`instructions-list ${className}`}>
       {list ? <strong>Instructions</strong> : ''}
       {list
         ? list.map((e, i) => {
